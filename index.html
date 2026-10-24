@@ -1,0 +1,418 @@
+<!doctype html>
+<!--
+  L'Cronx — built from the free "Reflow" template by 8B: https://8b.com/templates/reflow/
+  Source: https://github.com/8bsite/repair-shop-website-template · MIT License (code) · Fonts: Google Fonts (OFL)
+  One HTML file, no build step. Pictures in /img.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'Cronx — virtual and analog audio devices, Croydon UK</title>
+<meta name="description" content="Virtual &amp; ANALOG audio devices development &amp; MOD. Instruments and effects, EURORACK, Workstations. MUSIC PARAPHERNALIA made in UK.">
+<meta name="generator" content="8B Templates">
+<meta property="og:type" content="website">
+<meta property="og:title" content="L'Cronx">
+<meta property="og:description" content="Virtual &amp; ANALOG audio devices development &amp; MOD. Instruments and effects, EURORACK, Workstations. MUSIC PARAPHERNALIA made in UK.">
+<meta property="og:image" content="https://sunskiefer.github.io/img/lxrxxl.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c0c0c'/%3E%3Ctext x='32' y='46' font-family='Arial Black,Arial,sans-serif' font-size='40' font-weight='900' text-anchor='middle' fill='%23ffb000'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+
+/* Layout: a dark grained panel like a plugin skin; one column, full-width bands, a plugin wall of tiles.
+   Based on the 8B "Reflow" template (MIT) — tokens, dashed rules and dash-grid wordmark kept, sections rebuilt. */
+:root{
+  --color-1:#0c0c0c;      /* near-black grained sections */
+  --color-2:#f3f1ec;      /* off-white panel + headings on light */
+  --color-3:#d6d2c9;      /* text on dark */
+  --color-4:#8f8b83;      /* muted on dark */
+  --color-5:#56534d;      /* muted on light */
+  --color-6:#ffb000;      /* amber highlight: Q-Link / pad amber */
+  --color-7:#1d1c1a;      /* hairlines on dark */
+  --color-8:#e0ddd6;      /* hairlines on light */
+  --font-display:"Big Shoulders Display","Archivo Narrow","Arial Narrow",sans-serif;
+  --font-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gutter:max(16px,env(safe-area-inset-left,0px));
+  --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  --wrap:1180px;
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--color-1);color:var(--color-3);font-family:var(--font-body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--color-1)}
+*,*::before,*::after{box-sizing:border-box}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;line-height:.95;margin:0;text-wrap:balance;letter-spacing:.01em}
+p{margin:0}
+.m-surface{background:var(--color-1);color:var(--color-3);position:relative;isolation:isolate}
+.m-surface::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.m-surface-2{background:var(--color-2);color:var(--color-5)}
+.m-surface-2 h2,.m-surface-2 h3{color:#111}
+.l-wrap{max-width:var(--wrap);margin-inline:auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+section{padding-block:clamp(56px,9vw,120px)}
+.m-eyebrow{font-family:var(--font-mono);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-6);margin-bottom:18px}
+.m-surface-2 .m-eyebrow{color:#9a6a00}
+.m-h2{font-size:clamp(44px,7vw,92px);text-transform:uppercase}
+.m-text-big{font-size:clamp(20px,2.4vw,26px);max-width:34em}
+.m-dashes{display:flex;gap:10px;margin-block:28px}
+.m-dashes i{display:block;height:4px;flex:1;border-radius:2px;background:currentColor;opacity:.25}
+.m-dashes i:nth-child(3n){opacity:.9;background:var(--color-6)}
+.m-btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:14px 24px;border:2px solid currentColor;border-radius:999px;min-height:52px;transition:background .15s,color .15s}
+.m-btn:hover,.m-btn:focus-visible{background:var(--color-6);color:#111;border-color:var(--color-6);outline:none}
+.m-btn--solid{background:var(--color-6);color:#111;border-color:var(--color-6)}
+.m-btn--solid:hover{background:var(--color-2)}
+:focus-visible{outline:3px solid var(--color-6);outline-offset:3px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--color-1) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-7)}
+.nav__bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:66px}
+.nav__brand{font-family:var(--font-display);font-weight:800;font-size:28px;letter-spacing:.06em;text-decoration:none;text-transform:uppercase}
+.nav__brand b{color:var(--color-6)}
+.nav__links{display:flex;gap:28px;font-family:var(--font-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+.nav__links a{text-decoration:none;color:var(--color-4)}
+.nav__links a:hover{color:var(--color-2)}
+@media (max-width:760px){.nav__links{display:none}}
+
+/* opening */
+.op{padding-block:clamp(48px,8vw,110px) clamp(40px,6vw,80px);overflow:hidden}
+.op-wm{display:flex;flex-wrap:wrap;gap:clamp(8px,2vw,22px);align-items:flex-end;margin-bottom:34px}
+.op-wm__letter{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:clamp(2px,.6vw,6px);width:clamp(44px,9vw,110px);aspect-ratio:5/7}
+.op-wm__letter.is-apos{width:clamp(14px,3vw,34px);grid-template-columns:repeat(2,1fr);aspect-ratio:2/7}
+.op-wm__letter i{display:block;border-radius:999px;background:var(--color-3)}
+.op-wm__letter.is-apos i,.op-wm__letter.is-x i{background:var(--color-6)}
+.op-tag{font-size:clamp(26px,4vw,48px);font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.02em;color:var(--color-2);max-width:18em}
+.op-bar{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:34px;font-family:var(--font-mono);font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-4);padding-top:20px;border-top:1px solid var(--color-7)}
+.op-bar span b{color:var(--color-3);font-weight:500}
+.op-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* gallery slider */
+.ga{padding-block:0 clamp(40px,6vw,80px)}
+.ga-frame{position:relative;border:1px solid var(--color-7);border-radius:16px;overflow:hidden;background:#121211}
+.ga-track{display:flex;transition:transform .5s ease}
+@media (prefers-reduced-motion:reduce){.ga-track{transition:none}}
+.ga-slide{flex:0 0 100%;min-width:0;position:relative;aspect-ratio:16/9;display:grid;place-items:center;background:#0f0f0e}
+.ga-slide img{width:100%;height:100%;object-fit:contain}
+.ga-nav{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:999px;border:2px solid var(--color-6);background:color-mix(in srgb,#000 70%,transparent);color:var(--color-6);font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.ga-nav--prev{left:14px}.ga-nav--next{right:14px}
+.ga-dots{display:flex;justify-content:center;gap:10px;padding:14px}
+.ga-dots button{width:14px;height:14px;border-radius:999px;border:0;background:#3a3833;cursor:pointer;padding:0}
+.ga-dots button.is-on{background:var(--color-6)}
+.ga-empty{display:none;aspect-ratio:16/6;place-items:center;text-align:center;padding:20px;font-family:var(--font-display);font-size:28px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-4)}
+body.is-editing .ga-empty{display:grid}
+.ga-tools{display:none;gap:10px;flex-wrap:wrap;padding:12px 0}
+body.is-editing .ga-tools{display:flex}
+.ga-tools label,.ga-tools button{font-family:var(--font-mono);font-size:14px;letter-spacing:.04em;padding:10px 14px;border-radius:8px;border:1px solid #3a3833;background:#111;color:var(--color-2);cursor:pointer}
+.ga-tools input{display:none}
+.ga-slide .ed-tools{position:absolute;left:0;right:0;bottom:0;justify-content:center}
+
+/* panel strip (marquee) */
+.st{padding-block:0 clamp(40px,6vw,80px);overflow:hidden}
+.st-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.st-head p{font-family:var(--font-mono);font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-4)}
+.st-rail{display:flex;gap:18px;width:max-content;animation:st-move var(--st-dur,80s) linear infinite}
+.st-rail:hover{animation-play-state:paused}
+@keyframes st-move{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){.st-rail{animation:none;width:auto;overflow-x:auto;flex-wrap:nowrap}}
+.st-item{position:relative;flex:0 0 auto;width:clamp(220px,26vw,340px);border:1px solid var(--color-7);border-radius:12px;overflow:hidden;background:#121211}
+.st-item img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.st-item figcaption{display:none;justify-content:space-between;gap:10px;padding:10px 14px;font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:.04em;text-transform:uppercase;color:var(--color-2)}
+.st-item figcaption small{font-family:var(--font-mono);font-weight:400;font-size:12px;letter-spacing:.08em;color:var(--color-6);align-self:center;white-space:nowrap}
+.st-tools{display:none;gap:10px;flex-wrap:wrap;padding:12px 0}
+body.is-editing .st-tools{display:flex}
+.st-tools label,.st-tools button{font-family:var(--font-mono);font-size:14px;letter-spacing:.04em;padding:10px 14px;border-radius:8px;border:1px solid #3a3833;background:#111;color:var(--color-2);cursor:pointer}
+.st-tools input{display:none}
+body.is-editing .st-rail{animation:none;width:auto;overflow-x:auto;padding-bottom:10px}
+body.is-editing .st-item figcaption{display:flex}
+body.is-editing .st-item .ed-tools{position:absolute;top:8px;right:8px;padding:4px;border:0;background:transparent}
+
+/* about */
+.ab-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+@media (max-width:860px){.ab-grid{grid-template-columns:1fr}}
+.ab-list{display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--color-8)}
+.ab-list li{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--color-8);font-size:19px;min-width:0}
+.ab-list li i{font-family:var(--font-mono);font-style:normal;font-size:14px;letter-spacing:.1em;color:#9a6a00;padding-top:5px;min-width:7ch}
+.ab-list li span{font-family:var(--font-display);font-weight:600;font-size:26px;color:#111;display:block;margin-bottom:4px}
+
+/* plugin wall */
+.pl-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:20px;margin-bottom:40px}
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.pl-tile{position:relative;background:#121211;border:1px solid var(--color-7);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:border-color .15s,transform .15s}
+.pl-tile:hover{border-color:var(--color-6)}
+.pl-tile__img{aspect-ratio:2/1;background:#191917 linear-gradient(135deg,#1c1b19,#101010);display:grid;place-items:center;overflow:hidden;position:relative}
+.pl-tile__img img{width:100%;height:100%;object-fit:contain}
+.pl-tile__img .no-img{font-family:var(--font-display);font-weight:800;font-size:44px;letter-spacing:.06em;text-transform:uppercase;color:#2a2926;padding:10px 20px;text-align:center;word-break:break-word}
+.pl-tile__body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pl-tile__top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.pl-tile h3{font-size:34px;color:var(--color-2);text-transform:uppercase;letter-spacing:.03em;word-break:break-word}
+.pl-tile__ver{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;color:var(--color-6);white-space:nowrap}
+.pl-tile__kind{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-4)}
+.pl-tile p{color:var(--color-3);font-size:17px}
+.pl-tile__links{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:8px}
+.pl-tile__links a{font-family:var(--font-mono);font-size:14px;letter-spacing:.06em;text-decoration:none;color:var(--color-2);border:1px solid #33312d;padding:8px 14px;border-radius:999px}
+.pl-tile__links a:hover{border-color:var(--color-6);color:var(--color-6)}
+
+/* install */
+.in-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:40px}
+.in-step{border-top:3px solid #111;padding-top:18px}
+.in-step h3{font-size:30px;margin-bottom:10px}
+.in-step code,.m-code{font-family:var(--font-mono);font-size:15px;background:#111;color:var(--color-2);padding:3px 8px;border-radius:6px;word-break:break-all}
+
+/* support */
+.su-grid{display:grid;grid-template-columns:minmax(0,640px);gap:22px;margin-top:38px}
+@media (max-width:760px){.su-grid{grid-template-columns:1fr}}
+.su-card{border:1px solid var(--color-7);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;background:#121211;min-width:0}
+.su-card h3{font-size:36px;text-transform:uppercase;color:var(--color-2)}
+.su-card p{color:var(--color-4)}
+.su-card .m-btn{align-self:flex-start;margin-top:auto}
+.su-card.is-off .m-btn{opacity:.45;pointer-events:none}
+.su-card.is-off .m-btn::after{content:"· link not set yet";font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;text-transform:none;font-weight:400}
+
+/* contact + footer */
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media (max-width:760px){.ct-grid{grid-template-columns:1fr}}
+.ct-row{display:grid;gap:10px;margin-top:22px;font-size:19px}
+.ct-row a{text-decoration:none;color:#111;border-bottom:2px solid var(--color-6);align-self:start;width:max-content;max-width:100%;word-break:break-all}
+.ft{padding-block:40px 28px}
+.ft-rule{display:flex;gap:10px;margin-bottom:28px}
+.ft-rule i{height:3px;flex:1;background:var(--color-7);border-radius:2px}
+.ft-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;color:var(--color-4)}
+.ft-legal a{color:inherit}
+
+
+</style>
+</head>
+<body>
+<header class="nav m-surface" id="top">
+  <div class="l-wrap nav__bar">
+    <a class="nav__brand" href="#top">L<b>'</b>Cronx</a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#about">What I do</a><a href="#plugins">Plugins</a><a href="#install">Install</a><a href="#support">Support</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="op m-surface" id="opening">
+  <div class="l-wrap">
+    <h1 class="op-wm"><span class="op-wm__letter" aria-hidden="true"><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i></i><i></i><i></i></span><span class="op-wm__letter is-apos" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i></span><span class="op-wm__letter" aria-hidden="true"><i style="visibility:hidden"></i><i></i><i></i><i></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i></i><i></i></span><span class="op-wm__letter" aria-hidden="true"><i></i><i></i><i></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i></i><i></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i></span><span class="op-wm__letter" aria-hidden="true"><i style="visibility:hidden"></i><i></i><i></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i></i><i></i><i></i><i style="visibility:hidden"></i></span><span class="op-wm__letter" aria-hidden="true"><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i></span><span class="op-wm__letter is-x" aria-hidden="true"><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i><i></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i style="visibility:hidden"></i><i></i></span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">L'Cronx</span></h1>
+    <p class="op-tag">Virtual &amp; ANALOG audio devices development &amp; MOD. Instruments and effects, EURORACK, Workstations. MUSIC PARAPHERNALIA made in UK.</p>
+    <div class="op-bar">
+      <span>Based in <b>Croydon, UK</b></span>
+      <span>Platform <b>ALL Analog or Virtual</b></span>
+      <span>Code on <b><a href="https://github.com/sunskiefer" target="_blank" rel="noopener" style="color:inherit">GitHub</a></b></span>
+    </div>
+    <div class="op-cta"><a class="m-btn m-btn--solid" href="#plugins">See the plugins</a><a class="m-btn" href="#support">Support the work</a></div>
+  </div>
+</section>
+<section class="st m-surface" id="panels" style="--st-dur:135s">
+  <div class="l-wrap st-head"><p>The posters · three per plugin</p><p>hover to pause</p></div>
+  <div class="st-rail"><figure class="st-item" style="margin:0"><img src="img/poster-00-lxrxxl.jpg" alt="LXRXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-01-lxrxxl.jpg" alt="LXRXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-02-evil-tuner-xxl.jpg" alt="EVIL TUNER XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-03-evil-tuner-xxl.jpg" alt="EVIL TUNER XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-04-ps3100xxl.jpg" alt="PS3100XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-05-ps3100xxl.jpg" alt="PS3100XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-06-ps3100xxl.jpg" alt="PS3100XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-07-drloguexxl.jpg" alt="DrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-08-drloguexxl.jpg" alt="DrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-09-drloguexxl.jpg" alt="DrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-10-lxrxxl-bazzline.jpg" alt="LXRXXL BAZZLINE poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-11-lxrxxl-zynth.jpg" alt="LXRXXL ZYNTH poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-12-lxrxxl-zynth.jpg" alt="LXRXXL ZYNTH poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-13-lxrxxl-zynth.jpg" alt="LXRXXL ZYNTH poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-14-prloguexxl.jpg" alt="PrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-15-prloguexxl.jpg" alt="PrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-16-rmxxxl.jpg" alt="RMXXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-17-plateauxxl.jpg" alt="PlateauXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-18-interzonexxl.jpg" alt="InterzoneXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-19-interzonexxl.jpg" alt="InterzoneXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-20-loop-saboteurxxl.jpg" alt="Loop-SaboteurXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-21-loop-saboteurxxl.jpg" alt="Loop-SaboteurXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-22-surgexxl.jpg" alt="SurgeXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-23-surgexxl.jpg" alt="SurgeXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-24-meta4mpcxxl.jpg" alt="Meta4MPCXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-25-meta4mpcxxl.jpg" alt="Meta4MPCXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0"><img src="img/poster-26-meta4mpcxxl.jpg" alt="Meta4MPCXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-00-lxrxxl.jpg" alt="LXRXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-01-lxrxxl.jpg" alt="LXRXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-02-evil-tuner-xxl.jpg" alt="EVIL TUNER XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-03-evil-tuner-xxl.jpg" alt="EVIL TUNER XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-04-ps3100xxl.jpg" alt="PS3100XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-05-ps3100xxl.jpg" alt="PS3100XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-06-ps3100xxl.jpg" alt="PS3100XXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-07-drloguexxl.jpg" alt="DrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-08-drloguexxl.jpg" alt="DrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-09-drloguexxl.jpg" alt="DrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-10-lxrxxl-bazzline.jpg" alt="LXRXXL BAZZLINE poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-11-lxrxxl-zynth.jpg" alt="LXRXXL ZYNTH poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-12-lxrxxl-zynth.jpg" alt="LXRXXL ZYNTH poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-13-lxrxxl-zynth.jpg" alt="LXRXXL ZYNTH poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-14-prloguexxl.jpg" alt="PrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-15-prloguexxl.jpg" alt="PrLogueXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-16-rmxxxl.jpg" alt="RMXXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-17-plateauxxl.jpg" alt="PlateauXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-18-interzonexxl.jpg" alt="InterzoneXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-19-interzonexxl.jpg" alt="InterzoneXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-20-loop-saboteurxxl.jpg" alt="Loop-SaboteurXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-21-loop-saboteurxxl.jpg" alt="Loop-SaboteurXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-22-surgexxl.jpg" alt="SurgeXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-23-surgexxl.jpg" alt="SurgeXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-24-meta4mpcxxl.jpg" alt="Meta4MPCXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-25-meta4mpcxxl.jpg" alt="Meta4MPCXXL poster" loading="lazy" width="900" height="1125"></figure><figure class="st-item" style="margin:0" aria-hidden="true"><img src="img/poster-26-meta4mpcxxl.jpg" alt="Meta4MPCXXL poster" loading="lazy" width="900" height="1125"></figure></div>
+</section>
+<section class="m-surface-2" id="about">
+  <div class="l-wrap ab-grid">
+    <div>
+      <p class="m-eyebrow">What I do</p>
+      <h2 class="m-h2">Devices, virtual and real</h2>
+      <div class="m-dashes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="m-text-big">I design and help build Virtual and Analog instruments. I specialise in Synth Mods mainly their Panels, but also circuit bending and mods. I also build plugin instruments and effects that run natively on any platform. I have a sweet spot for Erica Synths stuff &amp; the Akai Force and MPC standalone units in a virtual environment.
+Most stuff on this repo are ports or re-imaginings of hardware I like to use, with the extras I wanted on stage: randomisers, presets, limiters, sequencers and patch bays you wire by touch.</p>
+    </div>
+    <ul class="ab-list"><li><i>01</i><div><span>Plugin instruments</span><p>Drum machines and synths packaged as native VST2 plugins for MPC OS, each with its own ART skin.</p></div></li><li><i>02</i><div><span>Effects</span><p>Remix effects, reverbs, glitch and slicer tools, tuners and radios recorded straight into the units.</p></div></li><li><i>03</i><div><span>Hardware and controllers</span><p>Custom MIDI controllers and panel mod work. Circuit bends and add-ons. EURORACK modules and paraphernalia</p></div></li><li><i>04</i><div><span>Open source</span><p>Everything is published on GitHub under L'Cronx, with releases ready to download &amp; install or rebuild. Unless it is my own code.</p></div></li></ul>
+  </div>
+</section>
+<section class="m-surface" id="plugins">
+  <div class="l-wrap">
+    <div class="pl-head">
+      <div><p class="m-eyebrow">Plugins</p><h2 class="m-h2">The XXL series</h2></div>
+      <p class="m-text-big" style="max-width:22em;color:var(--color-4)">Native VST2 instruments and effects for MPC OS. Tap a tile for the code and the latest release.</p>
+    </div>
+    <div class="pl-grid">
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/lxrxxl.jpg" alt="LXRXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>LXRXXL</h3><span class="pl-tile__ver">v0.5.8</span></div>
+        <span class="pl-tile__kind">Drum machine · Instrument</span>
+        <p>The Sonic Potions / Erica Synths LXR-02 drum machine, modded, as a plugin instrument for Force and MPC: the whole panel on one page, LXR02Open voices, randomisers and Hrtl DLC presets.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/LXR02XXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/LXR02XXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/vader.jpg" alt="VADER screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>VADER</h3><span class="pl-tile__ver">v0.4.5</span></div>
+        <span class="pl-tile__kind">Vector synth · Instrument</span>
+        <p>Orbit-based vector synth: load SVG, 3D or image shapes and let the orbit through them drive the sound.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/VADER" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/VADER/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/evil-tuner-xxl.jpg" alt="EVIL TUNER XXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>EVIL TUNER XXL</h3><span class="pl-tile__ver">v0.1.0</span></div>
+        <span class="pl-tile__kind">Internet radio · Effect</span>
+        <p>Internet radio, your phone (Roc on Android, AirPlay on iPhone) played straight into a Force / MPC track, processed with effects or recorded as it comes in.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/Evil-Tuner-XXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/Evil-Tuner-XXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/ms20xxl.jpg" alt="MS20XXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>MS20XXL</h3><span class="pl-tile__ver">v0.1.0</span></div>
+        <span class="pl-tile__kind">Semi-modular mono synth · Instrument</span>
+        <p>Korg MS-20-style mono synth modelled from the circuit: two VCOs, MS-20 filters, ESP, a touch patch panel and an SQ-10-style analog step sequencer.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/MS20XXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/MS20XXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/ps3100xxl.jpg" alt="PS3100XXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>PS3100XXL</h3><span class="pl-tile__ver">v0.1.5</span></div>
+        <span class="pl-tile__kind">Semi-modular poly synth · Instrument</span>
+        <p>Korg PS-3100 circuitry with L'Cronx à la carte voices and a new system patch bay: the whole panel on one zoomable page, patched by touch.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/PS3100XXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/PS3100XXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/drloguexxl.jpg" alt="DrLogueXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>DrLogueXXL</h3><span class="pl-tile__ver">v0.2.1</span></div>
+        <span class="pl-tile__kind">Drum machine · Instrument</span>
+        <p>After the Korg drumlogue, for MPC OS: eleven parts, send effects and a master effect with sidechain; saves with the MPC project. Not a port of Korg's firmware.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/DrLogueXXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/DrLogueXXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/lxrxxl-bazzline.jpg" alt="LXRXXL BAZZLINE screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>LXRXXL BAZZLINE</h3><span class="pl-tile__ver">v0.2.8</span></div>
+        <span class="pl-tile__kind">8-track bass synth · Instrument</span>
+        <p>An 8-voice Bassline synth on the LXRXXL engine and sequencer, for Akai Force and MPC.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/LXRXXL-BAZZLINE" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/LXRXXL-BAZZLINE/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/lxrxxl-zynth.jpg" alt="LXRXXL ZYNTH screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>LXRXXL ZYNTH</h3><span class="pl-tile__ver">v0.2.0</span></div>
+        <span class="pl-tile__kind">Experimental synth · Instrument</span>
+        <p>19 voices built on unconventional maths: a Lorenz-attractor CHAOS modulator, a Hilbert-transform frequency shifter, Euclidean rhythms and voices after classic synths and chips, across four full-screen artwork pages.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/LXRXXL-ZYNTH" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/LXRXXL-ZYNTH/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/prloguexxl.jpg" alt="PrLogueXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>PrLogueXXL</h3><span class="pl-tile__ver"></span></div>
+        <span class="pl-tile__kind">Poly synth · Instrument</span>
+        <p>A KORG prologue-16-style polyphonic synth for Akai Force and MPC, the panel split across screen pages.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/PrLogueXXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/PrLogueXXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/rmxxxl.jpg" alt="RMXXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>RMXXXL</h3><span class="pl-tile__ver">v1.2.1</span></div>
+        <span class="pl-tile__kind">Remix effect · Insert</span>
+        <p>RMX-1000-style remix effect running natively in MPC OS on the Force: isolator, DJ filter, scene FX, echo, Clouds, reverbs, sample pads and a limiter.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/RMXXXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/RMXXXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/plateauxxl.jpg" alt="PlateauXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>PlateauXXL</h3><span class="pl-tile__ver">v0.4.1</span></div>
+        <span class="pl-tile__kind">Plate reverb · Insert</span>
+        <p>Valley Audio's Plateau reverb from VCV Rack as an MPC OS insert, with LFOs, random sources and sequencers patchable into its CV inputs.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/PlateauXXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/PlateauXXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/interzonexxl.jpg" alt="InterzoneXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>InterzoneXXL</h3><span class="pl-tile__ver">v0.1.1</span></div>
+        <span class="pl-tile__kind">Synth voice · Instrument</span>
+        <p>Valley Audio's Interzone synth voice played from MIDI in mono or poly, patched with its own LFOs, random sources and sequencers, native in MPC OS on the Force.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/InterzoneXXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/InterzoneXXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/loop-saboteurxxl.jpg" alt="Loop-SaboteurXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>Loop-SaboteurXXL</h3><span class="pl-tile__ver">v0.1.1</span></div>
+        <span class="pl-tile__kind">Glitch / slicer · Insert</span>
+        <p>clickysteve's Loop Saboteur glitch, chop and beat-slicer effect as a native MPC OS insert, with an 8-scene sequencer: stutter, ratchet, filter and more.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/Loop-SaboteurXXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/Loop-SaboteurXXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/gaiaxxl.jpg" alt="GAIAXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>GAIAXXL</h3><span class="pl-tile__ver">v0.1.2</span></div>
+        <span class="pl-tile__kind">Virtual-analog synth · Instrument</span>
+        <p>A virtual-analog synth modelled on the Roland GAIA SH-01, each voice played on the original and rebuilt in new code. An independent recreation.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/GAIAXXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/GAIAXXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/surgexxl.jpg" alt="SurgeXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>SurgeXXL</h3><span class="pl-tile__ver">v0.1.3</span></div>
+        <span class="pl-tile__kind">Hybrid synth · Instrument</span>
+        <p>Surge XT on the Force: the open-source hybrid synth with its oscillators, filters and Airwindows effects, mapped to screen pages and Q-Links.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/SurgeXXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/SurgeXXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article>
+    <article class="pl-tile">
+      <div class="pl-tile__img"><img src="img/meta4mpcxxl.jpg" alt="Meta4MPCXXL screen" loading="lazy" width="1280" height="628"></div>
+      <div class="pl-tile__body">
+        <div class="pl-tile__top"><h3>Meta4MPCXXL</h3><span class="pl-tile__ver"></span></div>
+        <span class="pl-tile__kind">Patch player · Instrument + FX</span>
+        <p>Meta4MPCXXL and Meta4MPCXXL FX play 4ms MetaModule patches on the Akai Force, parameters on Q-Link pages.</p>
+        <div class="pl-tile__links"><a href="https://github.com/sunskiefer/Meta4MPCXXL" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/sunskiefer/Meta4MPCXXL/releases" target="_blank" rel="noopener">Releases ↗</a></div>
+      </div>
+    </article></div>
+  </div>
+</section>
+<section class="m-surface-2" id="install">
+  <div class="l-wrap">
+    <p class="m-eyebrow">Install</p>
+    <h2 class="m-h2">On the Force in three steps</h2>
+    <div class="in-grid"><div class="in-step"><h3>Add the catalog</h3><p>Open mpc-installer or mpc-catalog on your Force / MPC and point it at the L'Cronx releases. Optionally download the armv7.zip file and drag it into the mpc-catalog / installer.</p></div><div class="in-step"><h3>Pick a plugin</h3><p>Every release ships with install.sh and uninstall.sh, so a plugin goes on and comes off cleanly.</p></div><div class="in-step"><h3>Load it</h3><p>The plugin shows up as an instrument or insert in MPC OS with its own screen and Q-Link pages.</p></div></div>
+    <p style="margin-top:34px;font-size:17px">Wrapper and catalog tooling: <a class="m-code" href="https://github.com/sunskiefer/mpc-vst-plugins" target="_blank" rel="noopener">github.com/sunskiefer/mpc-vst-plugins</a></p>
+  </div>
+</section>
+<section class="m-surface" id="support">
+  <div class="l-wrap">
+    <p class="m-eyebrow">Support</p>
+    <h2 class="m-h2">Keep the bench running</h2>
+    <p class="m-text-big">The plugins are free. If one of them earned a place in your set, a tip on Ko-fi keeps the next port moving.</p>
+    <div class="su-grid"><div class="su-card"><h3>Tip on Ko-fi</h3><p>Ko-fi takes a one-off tip or a monthly one, by card or PayPal, with no platform fee.</p><a class="m-btn m-btn--solid" href="https://ko-fi.com/lcronx" target="_blank" rel="noopener">☕ Support on Ko-fi</a></div></div>
+  </div>
+</section>
+<section class="m-surface-2" id="contact">
+  <div class="l-wrap ct-grid">
+    <div><p class="m-eyebrow">Contact</p><h2 class="m-h2">Get in touch</h2></div>
+    <div class="ct-row">
+      <p>Issues, ideas and bug reports go on the plugin's GitHub repo. For everything else:</p>
+      <a href="https://github.com/sunskiefer" target="_blank" rel="noopener">github.com/sunskiefer</a>
+      
+      <p>Croydon, UK</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="ft m-surface">
+  <div class="l-wrap">
+    <div class="ft-rule" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="ft-legal">
+      <p>© 2026 L'Cronx · Croydon, UK</p>
+      <p>Design: <a href="https://8b.com/" data-8b-credit>8B</a> · <a href="#top">Back to top</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
