@@ -1,0 +1,18 @@
+name = "lcronx-presets"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+INBOX_REPO = "sunskiefer/preset-inbox"
+INBOX_BRANCH = "main"
+ALLOWED_ORIGINS = "https://sunskiefer.github.io"
+
+# Small store, only for spam limits and duplicate checks (no presets are kept here).
+# Create it once:  npx wrangler kv namespace create LIMITS   then paste the id below.
+[[kv_namespaces]]
+binding = "LIMITS"
+id = "PASTE_THE_KV_ID_HERE"
+
+# Secret (never in this file):
+#   npx wrangler secret put GITHUB_TOKEN
+#   fine-grained token for the PRIVATE repo sunskiefer/preset-inbox only: Contents = read and write, Issues = read and write

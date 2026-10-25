@@ -1,0 +1,571 @@
+<!doctype html>
+<!--
+  L'Cronx — built from the free "Reflow" template by 8B: https://8b.com/templates/reflow/
+  Source: https://github.com/8bsite/repair-shop-website-template · MIT License (code) · Fonts: Google Fonts (OFL)
+  One HTML file, no build step. Pictures in /img.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presets — L'Cronx</title>
+<meta name="description" content="Share and download presets for the L'Cronx plugins for Akai Force / MPC OS.">
+<meta name="generator" content="8B Templates">
+<meta property="og:type" content="website">
+<meta property="og:title" content="L'Cronx">
+<meta property="og:description" content="Virtual &amp; ANALOG audio devices development &amp; MOD. Instruments and effects, EURORACK, Workstations. MUSIC PARAPHERNALIA made in UK.">
+<meta property="og:image" content="https://sunskiefer.github.io/img/lxrxxl.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c0c0c'/%3E%3Ctext x='32' y='46' font-family='Arial Black,Arial,sans-serif' font-size='40' font-weight='900' text-anchor='middle' fill='%23ffb000'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+
+/* Layout: a dark grained panel like a plugin skin; one column, full-width bands, a plugin wall of tiles.
+   Based on the 8B "Reflow" template (MIT) — tokens, dashed rules and dash-grid wordmark kept, sections rebuilt. */
+:root{
+  --color-1:#0c0c0c;      /* near-black grained sections */
+  --color-2:#f3f1ec;      /* off-white panel + headings on light */
+  --color-3:#d6d2c9;      /* text on dark */
+  --color-4:#8f8b83;      /* muted on dark */
+  --color-5:#56534d;      /* muted on light */
+  --color-6:#ffb000;      /* amber highlight: Q-Link / pad amber */
+  --color-7:#1d1c1a;      /* hairlines on dark */
+  --color-8:#e0ddd6;      /* hairlines on light */
+  --font-display:"Big Shoulders Display","Archivo Narrow","Arial Narrow",sans-serif;
+  --font-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gutter:max(16px,env(safe-area-inset-left,0px));
+  --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  --wrap:1180px;
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--color-1);color:var(--color-3);font-family:var(--font-body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--color-1)}
+*,*::before,*::after{box-sizing:border-box}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;line-height:.95;margin:0;text-wrap:balance;letter-spacing:.01em}
+p{margin:0}
+.m-surface{background:var(--color-1);color:var(--color-3);position:relative;isolation:isolate}
+.m-surface::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.m-surface-2{background:var(--color-2);color:var(--color-5)}
+.m-surface-2 h2,.m-surface-2 h3{color:#111}
+.l-wrap{max-width:var(--wrap);margin-inline:auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+section{padding-block:clamp(56px,9vw,120px)}
+.m-eyebrow{font-family:var(--font-mono);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-6);margin-bottom:18px}
+.m-surface-2 .m-eyebrow{color:#9a6a00}
+.m-h2{font-size:clamp(44px,7vw,92px);text-transform:uppercase}
+.m-text-big{font-size:clamp(20px,2.4vw,26px);max-width:34em}
+.m-dashes{display:flex;gap:10px;margin-block:28px}
+.m-dashes i{display:block;height:4px;flex:1;border-radius:2px;background:currentColor;opacity:.25}
+.m-dashes i:nth-child(3n){opacity:.9;background:var(--color-6)}
+.m-btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:14px 24px;border:2px solid currentColor;border-radius:999px;min-height:52px;transition:background .15s,color .15s}
+.m-btn:hover,.m-btn:focus-visible{background:var(--color-6);color:#111;border-color:var(--color-6);outline:none}
+.m-btn--solid{background:var(--color-6);color:#111;border-color:var(--color-6)}
+.m-btn--solid:hover{background:var(--color-2)}
+:focus-visible{outline:3px solid var(--color-6);outline-offset:3px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--color-1) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-7)}
+.nav__bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:66px}
+.nav__brand{font-family:var(--font-display);font-weight:800;font-size:28px;letter-spacing:.06em;text-decoration:none;text-transform:uppercase}
+.nav__brand b{color:var(--color-6)}
+.nav__links{display:flex;gap:28px;font-family:var(--font-mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+.nav__links a{text-decoration:none;color:var(--color-4)}
+.nav__links a:hover{color:var(--color-2)}
+@media (max-width:760px){.nav__links{display:none}}
+
+/* opening */
+.op{padding-block:clamp(48px,8vw,110px) clamp(40px,6vw,80px);overflow:hidden}
+.op-wm{display:flex;flex-wrap:wrap;gap:clamp(8px,2vw,22px);align-items:flex-end;margin-bottom:34px}
+.op-wm__letter{display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:clamp(2px,.6vw,6px);width:clamp(44px,9vw,110px);aspect-ratio:5/7}
+.op-wm__letter.is-apos{width:clamp(14px,3vw,34px);grid-template-columns:repeat(2,1fr);aspect-ratio:2/7}
+.op-wm__letter i{display:block;border-radius:999px;background:var(--color-3)}
+.op-wm__letter.is-apos i,.op-wm__letter.is-x i{background:var(--color-6)}
+.op-tag{font-size:clamp(26px,4vw,48px);font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:.02em;color:var(--color-2);max-width:18em}
+.op-bar{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:34px;font-family:var(--font-mono);font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--color-4);padding-top:20px;border-top:1px solid var(--color-7)}
+.op-bar span b{color:var(--color-3);font-weight:500}
+.op-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* gallery slider */
+.ga{padding-block:0 clamp(40px,6vw,80px)}
+.ga-frame{position:relative;border:1px solid var(--color-7);border-radius:16px;overflow:hidden;background:#121211}
+.ga-track{display:flex;transition:transform .5s ease}
+@media (prefers-reduced-motion:reduce){.ga-track{transition:none}}
+.ga-slide{flex:0 0 100%;min-width:0;position:relative;aspect-ratio:16/9;display:grid;place-items:center;background:#0f0f0e}
+.ga-slide img{width:100%;height:100%;object-fit:contain}
+.ga-nav{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:999px;border:2px solid var(--color-6);background:color-mix(in srgb,#000 70%,transparent);color:var(--color-6);font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.ga-nav--prev{left:14px}.ga-nav--next{right:14px}
+.ga-dots{display:flex;justify-content:center;gap:10px;padding:14px}
+.ga-dots button{width:14px;height:14px;border-radius:999px;border:0;background:#3a3833;cursor:pointer;padding:0}
+.ga-dots button.is-on{background:var(--color-6)}
+.ga-empty{display:none;aspect-ratio:16/6;place-items:center;text-align:center;padding:20px;font-family:var(--font-display);font-size:28px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-4)}
+body.is-editing .ga-empty{display:grid}
+.ga-tools{display:none;gap:10px;flex-wrap:wrap;padding:12px 0}
+body.is-editing .ga-tools{display:flex}
+.ga-tools label,.ga-tools button{font-family:var(--font-mono);font-size:14px;letter-spacing:.04em;padding:10px 14px;border-radius:8px;border:1px solid #3a3833;background:#111;color:var(--color-2);cursor:pointer}
+.ga-tools input{display:none}
+.ga-slide .ed-tools{position:absolute;left:0;right:0;bottom:0;justify-content:center}
+
+/* panel strip (marquee) */
+.st{padding-block:0 clamp(48px,7vw,100px);overflow:hidden}
+.st-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.st-head p{font-family:var(--font-mono);font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-4)}
+.st-rail{display:flex;gap:36px;width:max-content;animation:st-move var(--st-dur,80s) linear infinite}
+.st-rail:hover{animation-play-state:paused}
+@keyframes st-move{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){.st-rail{animation:none;width:auto;overflow-x:auto;flex-wrap:nowrap}}
+.st-item{position:relative;flex:0 0 auto;width:min(88vw,820px);border:1px solid var(--color-7);border-radius:12px;overflow:hidden;background:#121211}
+.st-item img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block}
+.st-item figcaption{display:none;justify-content:space-between;gap:10px;padding:10px 14px;font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:.04em;text-transform:uppercase;color:var(--color-2)}
+.st-item figcaption small{font-family:var(--font-mono);font-weight:400;font-size:12px;letter-spacing:.08em;color:var(--color-6);align-self:center;white-space:nowrap}
+.st-tools{display:none;gap:10px;flex-wrap:wrap;padding:12px 0}
+body.is-editing .st-tools{display:flex}
+.st-tools label,.st-tools button{font-family:var(--font-mono);font-size:14px;letter-spacing:.04em;padding:10px 14px;border-radius:8px;border:1px solid #3a3833;background:#111;color:var(--color-2);cursor:pointer}
+.st-tools input{display:none}
+body.is-editing .st-rail{animation:none;width:auto;overflow-x:auto;padding-bottom:10px}
+body.is-editing .st-item figcaption{display:flex}
+body.is-editing .st-item .ed-tools{position:absolute;top:8px;right:8px;padding:4px;border:0;background:transparent}
+
+/* about */
+.ab-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+@media (max-width:860px){.ab-grid{grid-template-columns:1fr}}
+.ab-list{display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--color-8)}
+.ab-list li{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--color-8);font-size:19px;min-width:0}
+.ab-list li i{font-family:var(--font-mono);font-style:normal;font-size:14px;letter-spacing:.1em;color:#9a6a00;padding-top:5px;min-width:7ch}
+.ab-list li span{font-family:var(--font-display);font-weight:600;font-size:26px;color:#111;display:block;margin-bottom:4px}
+
+/* plugin wall */
+.pl-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:20px;margin-bottom:40px}
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.pl-tile{position:relative;background:#121211;border:1px solid var(--color-7);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:border-color .15s,transform .15s}
+.pl-tile:hover{border-color:var(--color-6)}
+.pl-tile__img{aspect-ratio:2/1;background:#191917 linear-gradient(135deg,#1c1b19,#101010);display:grid;place-items:center;overflow:hidden;position:relative}
+.pl-tile__img img{width:100%;height:100%;object-fit:contain}
+.pl-tile__img .no-img{font-family:var(--font-display);font-weight:800;font-size:44px;letter-spacing:.06em;text-transform:uppercase;color:#2a2926;padding:10px 20px;text-align:center;word-break:break-word}
+.pl-tile__body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pl-tile__top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.pl-tile h3{font-size:34px;color:var(--color-2);text-transform:uppercase;letter-spacing:.03em;word-break:break-word}
+.pl-tile__ver{font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;color:var(--color-6);white-space:nowrap}
+.pl-tile__kind{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-4)}
+.pl-tile p{color:var(--color-3);font-size:17px}
+.pl-tile__links{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:8px}
+.pl-tile__links a{font-family:var(--font-mono);font-size:14px;letter-spacing:.06em;text-decoration:none;color:var(--color-2);border:1px solid #33312d;padding:8px 14px;border-radius:999px}
+.pl-tile__links a:hover{border-color:var(--color-6);color:var(--color-6)}
+
+/* install */
+.in-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:40px}
+.in-step{border-top:3px solid #111;padding-top:18px}
+.in-step h3{font-size:30px;margin-bottom:10px}
+.in-step code,.m-code{font-family:var(--font-mono);font-size:15px;background:#111;color:var(--color-2);padding:3px 8px;border-radius:6px;word-break:break-all}
+
+/* support */
+.su-grid{display:grid;grid-template-columns:minmax(0,640px);gap:22px;margin-top:38px}
+@media (max-width:760px){.su-grid{grid-template-columns:1fr}}
+.su-card{border:1px solid var(--color-7);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;background:#121211;min-width:0}
+.su-card h3{font-size:36px;text-transform:uppercase;color:var(--color-2)}
+.su-card p{color:var(--color-4)}
+.su-card .m-btn{align-self:flex-start;margin-top:auto}
+.su-card.is-off .m-btn{opacity:.45;pointer-events:none}
+.su-card.is-off .m-btn::after{content:"· link not set yet";font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;text-transform:none;font-weight:400}
+
+/* contact + footer */
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media (max-width:760px){.ct-grid{grid-template-columns:1fr}}
+.ct-row{display:grid;gap:10px;margin-top:22px;font-size:19px}
+.ct-row a{text-decoration:none;color:#111;border-bottom:2px solid var(--color-6);align-self:start;width:max-content;max-width:100%;word-break:break-all}
+.ft{padding-block:40px 28px}
+.ft-rule{display:flex;gap:10px;margin-bottom:28px}
+.ft-rule i{height:3px;flex:1;background:var(--color-7);border-radius:2px}
+.ft-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;color:var(--color-4)}
+.ft-legal a{color:inherit}
+
+
+
+.pr-hero{padding:clamp(48px,8vw,96px) 0 24px}
+.pr-drop{display:block;border:2px dashed var(--color-5);border-radius:16px;padding:clamp(28px,5vw,56px);text-align:center;background:#121211;cursor:pointer;transition:border-color .15s,background .15s}
+.pr-drop:hover,.pr-drop.is-over{border-color:var(--color-6);background:#181816}
+.pr-drop b{display:block;font-family:var(--font-display);font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--color-2)}
+.pr-drop span{display:block;margin-top:8px;color:var(--color-4);font-size:17px}
+.pr-drop input{position:absolute;opacity:0;width:1px;height:1px}
+.pr-form{display:grid;gap:14px;margin-top:22px}
+.pr-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.pr-f{display:grid;gap:6px;font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;color:var(--color-4);text-transform:uppercase}
+.pr-f input,.pr-f select,.pr-f textarea{font:inherit;font-family:var(--font-body);font-size:17px;letter-spacing:0;text-transform:none;color:var(--color-2);background:#0c0c0c;border:1px solid var(--color-5);border-radius:10px;padding:12px 14px;min-width:0;width:100%}
+.pr-f input:focus,.pr-f select:focus,.pr-f textarea:focus{border-color:var(--color-6);outline:none}
+.pr-item{background:#121211;border:1px solid var(--color-7);border-radius:14px;padding:18px;display:grid;gap:12px}
+.pr-item.is-bad{border-color:#7a2d22}.pr-item.is-ok{border-color:#2f6b3a}
+.pr-item h4{font-family:var(--font-display);font-size:24px;margin:0;color:var(--color-2)}
+.pr-tag{display:inline-block;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-5);color:var(--color-3);border-radius:999px;padding:3px 10px;margin-right:6px}
+.pr-msg{font-size:16px;color:var(--color-3)}.pr-msg.err{color:#ff8a78}.pr-msg.good{color:#8fe3a0}
+.pr-chk{display:flex;gap:10px;align-items:flex-start;font-size:16px;color:var(--color-3);line-height:1.4}.pr-chk input{margin-top:4px;width:20px;height:20px;flex:none}
+.pr-btn{font-family:var(--font-mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--color-5);background:transparent;color:var(--color-2);border-radius:999px;padding:12px 22px;cursor:pointer}
+.pr-btn:hover{border-color:var(--color-6);color:var(--color-6)}
+.pr-btn--solid{background:var(--color-6);color:#111;border-color:var(--color-6);font-weight:700}.pr-btn--solid:hover{background:var(--color-2);color:#111;border-color:var(--color-2)}
+.pr-btn--bad:hover{border-color:#ff8a78;color:#ff8a78}
+.pr-btn[disabled]{opacity:.5;pointer-events:none}
+.pr-bar{display:flex;flex-wrap:wrap;gap:14px;align-items:end;margin:26px 0 8px}
+.pr-bar .pr-f{flex:1 1 180px}
+.pr-seg{display:flex;gap:6px;flex-wrap:wrap}
+.pr-seg button{font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--color-5);background:transparent;color:var(--color-3);border-radius:999px;padding:9px 16px;cursor:pointer}
+.pr-seg button[aria-pressed=true]{background:var(--color-6);color:#111;border-color:var(--color-6)}
+.pr-group{margin-top:30px}.pr-group>h3{font-family:var(--font-display);font-size:32px;margin:0 0 10px;color:var(--color-2);border-bottom:1px solid var(--color-7);padding-bottom:8px}
+.pr-list{display:grid;gap:10px}
+.pr-card{display:grid;grid-template-columns:1fr auto;gap:8px 18px;align-items:center;background:#121211;border:1px solid var(--color-7);border-radius:12px;padding:14px 18px}
+.pr-card h4{font-family:var(--font-display);font-size:24px;margin:0;color:var(--color-2)}
+.pr-card p{margin:4px 0 0;color:var(--color-4);font-size:16px}
+.pr-card .pr-meta{font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--color-4)}
+@media(max-width:640px){.pr-card{grid-template-columns:1fr}}
+.pr-how{margin-top:40px;color:var(--color-3);font-size:18px;line-height:1.55;max-width:60ch}
+.pr-how code{font-family:var(--font-mono);font-size:15px;color:var(--color-2)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.pr-drop{position:relative;display:grid;justify-items:center;gap:6px}
+.pr-drop .arr{width:84px;height:84px;color:var(--color-6);animation:prb 1.6s ease-in-out infinite}
+@keyframes prb{0%,100%{transform:translateY(-6px)}50%{transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.pr-drop .arr{animation:none}}
+.pr-drop b{font-size:clamp(34px,6vw,64px);line-height:1;color:var(--color-2)}
+.pr-drop em{font-style:normal;font-family:var(--font-mono);font-size:15px;letter-spacing:.06em;color:var(--color-6);margin-top:6px}
+.pr-rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:26px}
+.pr-rules>div{background:#121211;border:1px solid var(--color-7);border-radius:14px;padding:22px}
+.pr-rules h3{font-family:var(--font-display);font-size:28px;margin:0 0 10px;color:var(--color-2)}
+.pr-rules ol,.pr-rules ul{margin:0;padding-left:1.2em;color:var(--color-3);font-size:17px;line-height:1.55}
+.pr-rules li{margin-bottom:6px}
+.pr-rules code{font-family:var(--font-mono);font-size:15px;color:var(--color-6);background:#0c0c0c;border-radius:6px;padding:2px 7px;white-space:nowrap}
+.pr-types span{display:inline-block;font-family:var(--font-mono);font-size:13px;border:1px solid var(--color-5);border-radius:999px;padding:3px 10px;margin:0 6px 6px 0;color:var(--color-3)}
+.pr-kind{display:flex;gap:6px}.pr-kind button{font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--color-5);background:transparent;color:var(--color-3);border-radius:999px;padding:9px 16px;cursor:pointer}
+.pr-kind button[aria-pressed=true]{background:var(--color-6);color:#111;border-color:var(--color-6)}
+.pr-fn{font-family:var(--font-mono);font-size:14px;color:var(--color-3)}.pr-fn b{color:var(--color-6);font-weight:600}
+</style>
+</head>
+<body>
+<header class="nav m-surface" id="top">
+  <div class="l-wrap nav__bar">
+    <a class="nav__brand" href="index.html">L<b>'</b>Cronx</a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="index.html#about">What I do</a><a href="index.html#plugins">Plugins</a><a href="presets.html" aria-current="page">Presets</a><a href="index.html#install">Install</a><a href="index.html#support">Support</a><a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="m-surface pr-hero">
+  <div class="l-wrap">
+    <p class="m-eyebrow">Presets</p>
+    <h1 class="m-h2">Share your sounds</h1>
+    <p class="m-text-big" style="max-width:34em;color:var(--color-4)">Made a preset you are proud of? Drop it here. I try every one on a Force before it goes on the list, and your name goes with it.</p>
+  </div>
+</section>
+<section class="m-surface" id="send">
+  <div class="l-wrap">
+    <label class="pr-drop" id="drop" for="pick" tabindex="0">
+      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M6.5 10.5 12 16l5.5-5.5"/><path d="M4 20h16"/></svg>
+      <b>DROP YOUR PRESETS HERE</b>
+      <span>One .zip with your .xpl presets inside. Drag it onto this box, or click to choose.</span>
+      <em>NAME IT  AUTHOR-PACK NAME.zip   or   PRESET NAME-TYPE.zip</em>
+      <input id="pick" type="file" accept=".zip,application/zip" multiple>
+    </label>
+    <p class="pr-msg" id="soon" hidden>Uploads open soon. You can already browse and download below.</p>
+    <form class="pr-form" id="form" hidden autocomplete="off">
+      <div class="pr-form" id="items"></div>
+      <label class="pr-f" style="max-width:520px">Link to you (optional)<input id="link" maxlength="200" placeholder="your site, YouTube, Instagram"></label>
+      <div class="hp" aria-hidden="true"><label>Website<input id="website" tabindex="-1" autocomplete="off"></label></div>
+      <label class="pr-chk"><input type="checkbox" id="agree"><span>I made these presets (or I have the right to share them), and I am happy for L'Cronx to list them with my name and let anyone download them for free. I know nothing goes up until it has been checked.</span></label>
+      <div><button class="pr-btn pr-btn--solid" id="send-btn" type="submit">Send for checking</button> <span class="pr-msg" id="send-msg"></span></div>
+    </form>
+    <div class="pr-rules" id="rules">
+      <div>
+        <h3>How it works</h3>
+        <ol>
+          <li>Find your <code>.xpl</code> preset files (on the Force / MPC they are in <code>MPC Documents / Plugin Presets</code>, in the plugin's folder).</li>
+          <li>Put them in one <b>.zip</b> and name it by the rules next to this. No time? Drop it anyway: the page shows the name it will use and lets you fix it.</li>
+          <li>Drop the zip in the box, check the details, tick the box, press <b>Send</b>.</li>
+          <li>I try it on a Force. If it is good it goes on the list below with your name and a download button.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Naming rules</h3>
+        <ul>
+          <li><b>A pack of presets:</b> <code>AUTHOR-PACK NAME.zip</code><br>e.g. <code>Sam-Dark Drones.zip</code></li>
+          <li><b>One preset:</b> <code>PRESET NAME-TYPE.zip</code><br>e.g. <code>Warm Wall-Pad.zip</code></li>
+          <li>TYPE is one of the usual preset-bank types below. If none fits, use <code>Experimental</code>.</li>
+          <li>Use a single dash <code>-</code> between the parts and none inside them. Apostrophes and slashes are dropped.</li>
+          <li>Inside the zip: only <code>.xpl</code> presets, plus an optional <code>.txt</code> or <code>.md</code> readme. Up to 8 MB.</li>
+        </ul>
+        <p style="margin:14px 0 8px;color:var(--color-4);font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase">Types</p>
+        <div class="pr-types" id="types"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="m-surface" id="browse" style="border-top:1px solid var(--color-7)">
+  <div class="l-wrap">
+    <p class="m-eyebrow">The list</p>
+    <h2 class="m-h2">Presets for the XXL series</h2>
+    <div class="pr-bar">
+      <label class="pr-f">Search<input id="q" type="search" placeholder="name, author, preset, note"></label>
+      <label class="pr-f">Plugin<select id="f-synth"><option value="">All</option></select></label>
+      <label class="pr-f">Type<select id="f-type"><option value="">All</option></select></label>
+      <label class="pr-f">Author<select id="f-author"><option value="">All</option></select></label>
+    </div>
+    <div class="pr-seg" role="group" aria-label="Group by"><button data-g="" aria-pressed="true">One list</button><button data-g="synth" aria-pressed="false">By plugin</button><button data-g="type" aria-pressed="false">By type</button><button data-g="author" aria-pressed="false">By author</button></div>
+    <p class="pr-msg" id="count" style="margin-top:14px"></p>
+    <div id="out"></div>
+    <div class="pr-how"><b>Installing:</b> unzip, copy the <code>.xpl</code> files into the plugin's <code>Presets</code> folder on your Force / MPC (next to the factory presets), then restart MPC so it finds the new files.</div>
+  </div>
+</section>
+</main>
+<footer class="ft m-surface">
+  <div class="l-wrap">
+    <div class="ft-rule" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="ft-legal">
+      <p>© 2026 L'Cronx · Croydon, UK</p>
+      <p>Design: <a href="https://8b.com/" data-8b-credit>8B</a> · <a href="#top">Back to top</a></p>
+    </div>
+  </div>
+</footer>
+<script type="module">
+import { checkXpl, MAX_BYTES } from "./presets/xpl-check.js";
+import { WORKER_URL } from "./presets/config.js";
+const $ = (id) => document.getElementById(id);
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+let cfg = { synths: [], types: [] }, all = [];
+const store = { get(k) { try { return localStorage.getItem(k) || ""; } catch { return ""; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+
+// ------------------------------------------------------------------ sending
+const queue = []; // {file, text, chk, name, type, notes, node}
+if (!WORKER_URL) $("soon").hidden = false;
+function addFiles(files) {
+  if (!WORKER_URL) { $("soon").hidden = false; return; }
+  for (const f of files) {
+    const it = { file: f, text: "", chk: null, status: "" };
+    if (!/\.xpl$/i.test(f.name)) { it.chk = { ok: false, error: "Only .xpl presets, please." }; }
+    else if (f.size > MAX_BYTES) { it.chk = { ok: false, error: "That file is bigger than " + MAX_BYTES / 1024 + " KB." }; }
+    queue.push(it); draw(it);
+    if (!it.chk) f.text().then((t) => { it.text = t; it.chk = checkXpl(t, cfg.synths); draw(it); });
+  }
+  $("form").hidden = false;
+  $("author").value = $("author").value || store.get("author");
+  $("link").value = $("link").value || store.get("link");
+}
+function draw(it) {
+  if (!it.node) { it.node = el("div", "pr-item"); $("items").appendChild(it.node); }
+  const n = it.node; n.replaceChildren(); n.className = "pr-item" + (it.chk && !it.chk.ok ? " is-bad" : it.status === "sent" ? " is-ok" : "");
+  n.appendChild(el("h4", "", it.file.name));
+  if (!it.chk) { n.appendChild(el("p", "pr-msg", "Checking…")); return; }
+  if (!it.chk.ok) {
+    n.appendChild(el("p", "pr-msg err", it.chk.error));
+    const b = el("button", "pr-btn", "Remove"); b.type = "button"; b.onclick = () => { queue.splice(queue.indexOf(it), 1); n.remove(); if (!queue.length) $("form").hidden = true; }; n.appendChild(b); return;
+  }
+  const tags = el("div"); tags.appendChild(el("span", "pr-tag", it.chk.synth.name)); tags.appendChild(el("span", "pr-tag", it.chk.synth.effect ? "Effect" : "Instrument")); n.appendChild(tags);
+  if (it.status === "sent") { n.appendChild(el("p", "pr-msg good", "Sent. Thank you! It will show up on the list once I have checked it.")); return; }
+  const row = el("div", "pr-row");
+  const l1 = el("label", "pr-f", "Preset name"); const i1 = el("input"); i1.maxLength = 80; i1.value = it.name ?? it.chk.preset; i1.oninput = () => (it.name = i1.value); l1.appendChild(i1);
+  const l2 = el("label", "pr-f", "Type"); const s = el("select"); for (const t of cfg.types) { const o = el("option", "", t); o.value = t; s.appendChild(o); } s.value = it.type || "Other"; s.onchange = () => (it.type = s.value); l2.appendChild(s);
+  row.append(l1, l2); n.appendChild(row);
+  const l3 = el("label", "pr-f", "What is it good for? (optional)"); const t3 = el("textarea"); t3.rows = 2; t3.maxLength = 400; t3.value = it.notes || ""; t3.oninput = () => (it.notes = t3.value); l3.appendChild(t3); n.appendChild(l3);
+  if (it.status) n.appendChild(el("p", "pr-msg err", it.status));
+}
+$("form").onsubmit = async (e) => {
+  e.preventDefault();
+  const msg = $("send-msg"); msg.className = "pr-msg"; msg.textContent = "";
+  const todo = queue.filter((i) => i.chk && i.chk.ok && i.status !== "sent");
+  if (!todo.length) { msg.className = "pr-msg err"; msg.textContent = "Nothing valid to send."; return; }
+  if (!$("author").value.trim()) { msg.className = "pr-msg err"; msg.textContent = "Please add your name or handle."; return; }
+  if (!$("agree").checked) { msg.className = "pr-msg err"; msg.textContent = "Please tick the box to confirm you may share them."; return; }
+  store.set("author", $("author").value); store.set("link", $("link").value);
+  $("send-btn").disabled = true; msg.textContent = "Sending…"; let ok = 0;
+  for (const it of todo) {
+    const fd = new FormData();
+    fd.set("file", it.file); fd.set("author", $("author").value); fd.set("link", $("link").value); fd.set("agree", "yes");
+    fd.set("name", it.name ?? it.chk.preset); fd.set("type", it.type || "Other"); fd.set("notes", it.notes || ""); fd.set("website", $("website").value);
+    try {
+      const r = await fetch(WORKER_URL + "/submit", { method: "POST", body: fd });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok) { it.status = "sent"; ok++; } else it.status = j.error || "That did not work. Try again later.";
+    } catch { it.status = "Could not reach the server. Try again later."; }
+    draw(it);
+  }
+  $("send-btn").disabled = false;
+  msg.className = "pr-msg " + (ok === todo.length ? "good" : "err"); msg.textContent = ok === todo.length ? "All sent. Thank you!" : ok + " of " + todo.length + " sent.";
+};
+const drop = $("drop");
+["dragenter", "dragover"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("is-over"); }));
+["dragleave", "drop"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("is-over"); }));
+drop.addEventListener("drop", (e) => addFiles([...e.dataTransfer.files]));
+drop.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("pick").click(); } });
+$("pick").onchange = (e) => { addFiles([...e.target.files]); e.target.value = ""; };
+
+// ------------------------------------------------------------------ the list
+let group = "";
+function fill(sel, vals) { const cur = sel.value; sel.length = 1; [...new Set(vals)].sort((a, b) => a.localeCompare(b)).forEach((v) => { const o = el("option", "", v); o.value = v; sel.appendChild(o); }); sel.value = cur; }
+function render() {
+  const q = $("q").value.toLowerCase().trim(), fs = $("f-synth").value, ft = $("f-type").value, fa = $("f-author").value;
+  const rows = all.filter((p) => (!fs || p.synthName === fs) && (!ft || p.type === ft) && (!fa || p.author === fa) &&
+    (!q || [p.name, p.author, p.notes, p.synthName, p.type].join(" ").toLowerCase().includes(q)))
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  $("count").textContent = all.length ? rows.length + " of " + all.length + " presets" : "No presets published yet. Yours could be the first.";
+  const out = $("out"); out.replaceChildren();
+  const groups = new Map();
+  for (const p of rows) { const k = group ? p[group] : ""; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
+  for (const k of [...groups.keys()].sort((a, b) => a.localeCompare(b))) {
+    const box = el("div", group ? "pr-group" : ""); if (group) box.appendChild(el("h3", "", k + "  (" + groups.get(k).length + ")"));
+    const list = el("div", "pr-list");
+    for (const p of groups.get(k)) {
+      const c = el("div", "pr-card"), left = el("div");
+      left.appendChild(el("h4", "", p.name));
+      const meta = el("div", "pr-meta"); meta.textContent = p.synthName + " · " + p.type + " · by "; 
+      if (/^https?:\/\//i.test(p.link || "")) { const a = el("a", "", p.author); a.href = p.link; a.target = "_blank"; a.rel = "noopener noreferrer"; meta.appendChild(a); } else meta.append(p.author);
+      meta.append(" · " + p.date); left.appendChild(meta);
+      if (p.notes) left.appendChild(el("p", "", p.notes));
+      const a = el("a", "pr-btn pr-btn--solid", "Download"); a.href = p.file; a.download = "";
+      c.append(left, a); list.appendChild(c);
+    }
+    box.appendChild(list); out.appendChild(box);
+  }
+}
+document.querySelectorAll(".pr-seg button").forEach((b) => (b.onclick = () => { group = b.dataset.g; document.querySelectorAll(".pr-seg button").forEach((x) => x.setAttribute("aria-pressed", x === b)); render(); }));
+["q", "f-synth", "f-type", "f-author"].forEach((id) => $(id).addEventListener("input", render));
+(async () => {
+  cfg = await (await fetch("presets/synths.json")).json();
+  try { all = (await (await fetch("presets/index.json", { cache: "no-cache" })).json()).presets.filter((p) => p.listed); } catch { all = []; }
+  fill($("f-synth"), all.map((p) => p.synthName)); fill($("f-type"), all.map((p) => p.type)); fill($("f-author"), all.map((p) => p.author));
+  render();
+})();
+</script>
+<script type="module">
+import { analyzeZip, LIMITS } from "./presets/zip-check.js";
+import { parseName, compose, FALLBACK_TYPE } from "./presets/naming.js";
+import { WORKER_URL } from "./presets/config.js";
+const $ = (id) => document.getElementById(id);
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+let cfg = { synths: [], types: [] }, all = [];
+const store = { get(k) { try { return localStorage.getItem(k) || ""; } catch { return ""; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+
+// ------------------------------------------------------------------ sending
+const queue = [];
+if (!WORKER_URL) $("soon").hidden = false;
+async function addFiles(files) {
+  if (!WORKER_URL) { $("soon").hidden = false; return; }
+  await ready;
+  for (const f of files) {
+    const it = { file: f, an: null, status: "", notes: "" };
+    const base = f.name.replace(/\.zip$/i, "");
+    const p = /\.zip$/i.test(f.name) ? parseName(base, cfg.types) : { error: "Only .zip files, please." };
+    if (p.kind === "single") Object.assign(it, { kind: "single", name: p.name, type: p.type, author: store.get("author") });
+    else if (p.kind === "pack") Object.assign(it, { kind: "pack", name: p.name, author: p.author, type: FALLBACK_TYPE });
+    else Object.assign(it, { kind: "pack", name: base, author: store.get("author"), type: FALLBACK_TYPE });
+    if (!/\.zip$/i.test(f.name)) it.an = { ok: false, error: "Only .zip files, please." };
+    else if (f.size > LIMITS.zip) it.an = { ok: false, error: "The zip is bigger than " + LIMITS.zip / 1048576 + " MB." };
+    queue.push(it); draw(it);
+    if (!it.an) f.arrayBuffer().then((b) => analyzeZip(new Uint8Array(b), cfg.synths)).then((a) => { it.an = a; draw(it); }).catch(() => { it.an = { ok: false, error: "Could not read that zip." }; draw(it); });
+  }
+  $("form").hidden = false;
+}
+function field(label, value, max, on) { const l = el("label", "pr-f", label); const i = el("input"); i.maxLength = max; i.value = value || ""; i.oninput = () => on(i.value); l.appendChild(i); return l; }
+function draw(it) {
+  if (!it.node) { it.node = el("div", "pr-item"); $("items").appendChild(it.node); }
+  const n = it.node; n.replaceChildren();
+  n.className = "pr-item" + (it.an && !it.an.ok ? " is-bad" : it.status === "sent" ? " is-ok" : "");
+  n.appendChild(el("h4", "", it.file.name));
+  if (!it.an) { n.appendChild(el("p", "pr-msg", "Looking inside…")); return; }
+  if (!it.an.ok) {
+    n.appendChild(el("p", "pr-msg err", it.an.error));
+    const b = el("button", "pr-btn", "Remove"); b.type = "button"; b.onclick = () => { queue.splice(queue.indexOf(it), 1); n.remove(); if (!queue.length) $("form").hidden = true; }; n.appendChild(b); return;
+  }
+  const tags = el("div");
+  tags.appendChild(el("span", "pr-tag", it.an.presets.length + (it.an.presets.length === 1 ? " preset" : " presets")));
+  it.an.synths.forEach((s) => tags.appendChild(el("span", "pr-tag", s.name))); n.appendChild(tags);
+  n.appendChild(el("p", "pr-msg", it.an.presets.slice(0, 6).map((p) => p.preset).join(", ") + (it.an.presets.length > 6 ? " …" : "")));
+  if (it.status === "sent") { n.appendChild(el("p", "pr-msg good", "Sent. Thank you! It will show up on the list once I have tried it.")); return; }
+  const kind = el("div", "pr-kind");
+  for (const [k, t] of [["pack", "A pack"], ["single", "One preset"]]) { const b = el("button", "", t); b.type = "button"; b.setAttribute("aria-pressed", it.kind === k); b.onclick = () => { it.kind = k; draw(it); }; kind.appendChild(b); }
+  n.appendChild(kind);
+  const row = el("div", "pr-row");
+  row.appendChild(field("Author (you)", it.author, 40, (v) => { it.author = v; fn(); }));
+  row.appendChild(field(it.kind === "pack" ? "Pack name" : "Preset name", it.name, 70, (v) => { it.name = v; fn(); }));
+  if (it.kind === "single") { const l = el("label", "pr-f", "Type"); const s = el("select"); for (const t of cfg.types) { const o = el("option", "", t); o.value = t; s.appendChild(o); } s.value = it.type; s.onchange = () => { it.type = s.value; fn(); }; l.appendChild(s); row.appendChild(l); }
+  n.appendChild(row);
+  const l3 = el("label", "pr-f", "What is it good for? (optional)"); const t3 = el("textarea"); t3.rows = 2; t3.maxLength = 400; t3.value = it.notes; t3.oninput = () => (it.notes = t3.value); l3.appendChild(t3); n.appendChild(l3);
+  const prev = el("p", "pr-fn"); n.appendChild(prev);
+  function fn() { const c = compose(it, cfg.types); prev.replaceChildren(document.createTextNode("It will be filed as  "), Object.assign(el("b"), { textContent: c.ok ? c.filename : c.error })); }
+  fn();
+  if (it.status) n.appendChild(el("p", "pr-msg err", it.status));
+}
+$("form").onsubmit = async (e) => {
+  e.preventDefault();
+  const msg = $("send-msg"); msg.className = "pr-msg"; msg.textContent = "";
+  const todo = queue.filter((i) => i.an && i.an.ok && i.status !== "sent");
+  const err = (t) => { msg.className = "pr-msg err"; msg.textContent = t; };
+  if (!todo.length) return err("Nothing valid to send.");
+  const first = todo.map((i) => (i.author || "").trim()).find(Boolean);
+  if (first) todo.forEach((i) => { if (!(i.author || "").trim()) i.author = first; });
+  for (const it of todo) { const c = compose(it, cfg.types); if (!c.ok) return err(it.file.name + ": " + c.error); if (!(it.author || "").trim()) return err("Please add your name as author for " + it.file.name + "."); }
+  if (!$("agree").checked) return err("Please tick the box to confirm you may share them.");
+  store.set("author", todo[0].author);
+  $("send-btn").disabled = true; msg.textContent = "Sending…"; let ok = 0;
+  for (const it of todo) {
+    const fd = new FormData();
+    fd.set("file", it.file); fd.set("kind", it.kind); fd.set("author", it.author); fd.set("name", it.name); fd.set("type", it.type);
+    fd.set("notes", it.notes); fd.set("link", $("link").value); fd.set("agree", "yes"); fd.set("website", $("website").value);
+    try {
+      const r = await fetch(WORKER_URL + "/submit", { method: "POST", body: fd });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok) { it.status = "sent"; ok++; } else it.status = j.error || "That did not work. Try again later.";
+    } catch { it.status = "Could not reach the server. Try again later."; }
+    draw(it);
+  }
+  $("send-btn").disabled = false;
+  msg.className = "pr-msg " + (ok === todo.length ? "good" : "err"); msg.textContent = ok === todo.length ? "All sent. Thank you!" : ok + " of " + todo.length + " sent.";
+};
+const drop = $("drop");
+["dragenter", "dragover"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("is-over"); }));
+["dragleave", "drop"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("is-over"); }));
+drop.addEventListener("drop", (e) => addFiles([...e.dataTransfer.files]));
+drop.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("pick").click(); } });
+$("pick").onchange = (e) => { addFiles([...e.target.files]); e.target.value = ""; };
+
+// ------------------------------------------------------------------ the list
+let group = "";
+function fill(sel, vals) { const cur = sel.value; sel.length = 1; [...new Set(vals)].sort((a, b) => a.localeCompare(b)).forEach((v) => { const o = el("option", "", v); o.value = v; sel.appendChild(o); }); sel.value = cur; }
+const keysOf = (p) => (group === "synth" ? p.synths.map((s) => s.name) : group === "type" ? [p.type] : group === "author" ? [p.author] : [""]);
+function render() {
+  const q = $("q").value.toLowerCase().trim(), fs = $("f-synth").value, ft = $("f-type").value, fa = $("f-author").value;
+  const rows = all.filter((p) => (!fs || p.synths.some((s) => s.name === fs)) && (!ft || p.type === ft) && (!fa || p.author === fa) &&
+    (!q || [p.name, p.author, p.notes, p.type, p.synths.map((s) => s.name).join(" "), p.presets.join(" ")].join(" ").toLowerCase().includes(q)));
+  $("count").textContent = all.length ? rows.length + " of " + all.length : "No presets published yet. Yours could be the first.";
+  const out = $("out"); out.replaceChildren();
+  const groups = new Map();
+  for (const p of rows) for (const k of keysOf(p)) { if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
+  for (const k of [...groups.keys()].sort((a, b) => a.localeCompare(b))) {
+    const box = el("div", group ? "pr-group" : ""); if (group) box.appendChild(el("h3", "", k + "  (" + groups.get(k).length + ")"));
+    const list = el("div", "pr-list");
+    for (const p of groups.get(k)) {
+      const c = el("div", "pr-card"), left = el("div");
+      left.appendChild(el("h4", "", p.name));
+      const meta = el("div", "pr-meta"); meta.textContent = (p.kind === "pack" ? "Pack of " + p.count : p.type) + " · " + p.synths.map((s) => s.name).join(", ") + " · by ";
+      if (/^https?:\/\//i.test(p.link || "")) { const a = el("a", "", p.author); a.href = p.link; a.target = "_blank"; a.rel = "noopener noreferrer"; meta.appendChild(a); } else meta.append(p.author);
+      if (p.date) meta.append(" · " + p.date);
+      left.appendChild(meta);
+      if (p.notes) left.appendChild(el("p", "", p.notes));
+      if (p.kind === "pack") left.appendChild(el("p", "", p.presets.slice(0, 8).join(", ") + (p.count > 8 ? " …" : "")));
+      const a = el("a", "pr-btn pr-btn--solid", "Download .zip"); a.href = p.file; a.download = "";
+      c.append(left, a); list.appendChild(c);
+    }
+    box.appendChild(list); out.appendChild(box);
+  }
+}
+document.querySelectorAll(".pr-seg button").forEach((b) => (b.onclick = () => { group = b.dataset.g; document.querySelectorAll(".pr-seg button").forEach((x) => x.setAttribute("aria-pressed", x === b)); render(); }));
+["q", "f-synth", "f-type", "f-author"].forEach((id) => $(id).addEventListener("input", render));
+const ready = (async () => {
+  cfg = await (await fetch("presets/synths.json")).json();
+  cfg.types.forEach((t) => $("types").appendChild(el("span", "", t)));
+  try { all = (await (await fetch("presets/index.json", { cache: "no-cache" })).json()).presets.filter((p) => p.listed); } catch { all = []; }
+  fill($("f-synth"), all.flatMap((p) => p.synths.map((s) => s.name))); fill($("f-type"), all.map((p) => p.type)); fill($("f-author"), all.map((p) => p.author));
+  render();
+})();
+</script>
+</body>
+</html>

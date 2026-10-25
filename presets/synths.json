@@ -1,0 +1,133 @@
+{
+ "types": [
+  "Bass",
+  "Lead",
+  "Pad",
+  "Keys",
+  "Pluck",
+  "Strings",
+  "Brass",
+  "Arp",
+  "Sequence",
+  "Drone",
+  "Texture",
+  "Ambient",
+  "FX",
+  "Percussion",
+  "Drums",
+  "Vocal",
+  "Filter",
+  "Init",
+  "Experimental"
+ ],
+ "synths": [
+  {
+   "key": "drloguexxl",
+   "name": "DrLogueXXL",
+   "uid": "AnDl",
+   "effect": false
+  },
+  {
+   "key": "dronexxl",
+   "name": "DroneXXL",
+   "uid": "DrnX",
+   "effect": false
+  },
+  {
+   "key": "evil-tuner-xxl",
+   "name": "Evil Tuner XXL",
+   "uid": "AnEt",
+   "effect": false
+  },
+  {
+   "key": "gaiaxxl",
+   "name": "GAIAXXL",
+   "uid": "GaXL",
+   "effect": false
+  },
+  {
+   "key": "interzonexxl",
+   "name": "InterzoneXXL",
+   "uid": "AnIz",
+   "effect": false
+  },
+  {
+   "key": "lxrxxl",
+   "name": "LXRXXL",
+   "uid": "AnLx",
+   "effect": false
+  },
+  {
+   "key": "lxrxxl-bazzline",
+   "name": "LXRXXL BAZZLINE",
+   "uid": "AnBz",
+   "effect": false
+  },
+  {
+   "key": "lxrxxl-zynth",
+   "name": "LXRXXL ZYNTH",
+   "uid": "AnZy",
+   "effect": false
+  },
+  {
+   "key": "loop-saboteurxxl",
+   "name": "Loop-SaboteurXXL",
+   "uid": "AnLs",
+   "effect": true
+  },
+  {
+   "key": "ms20xxl",
+   "name": "MS20XXL",
+   "uid": "Ms20",
+   "effect": false
+  },
+  {
+   "key": "meta4mpcxxl",
+   "name": "Meta4MPCXXL",
+   "uid": "M4Pi",
+   "effect": false
+  },
+  {
+   "key": "ps3100xxl",
+   "name": "PS3100XXL",
+   "uid": "Ps31",
+   "effect": false
+  },
+  {
+   "key": "phyxxl",
+   "name": "PhyXXL",
+   "uid": "PhyX",
+   "effect": true
+  },
+  {
+   "key": "plateauxxl",
+   "name": "PlateauXXL",
+   "uid": "AnPl",
+   "effect": true
+  },
+  {
+   "key": "prloguexxl",
+   "name": "PrLogueXXL",
+   "uid": "LcPl",
+   "effect": false
+  },
+  {
+   "key": "rmxxxl",
+   "name": "RMXXXL",
+   "uid": "AnRx",
+   "effect": true
+  },
+  {
+   "key": "surgexxl",
+   "name": "SurgeXXL",
+   "uid": "AnSx",
+   "effect": false
+  },
+  {
+   "key": "vader",
+   "name": "VADER",
+   "uid": "AnVd",
+   "effect": false
+  }
+ ]
+}
