@@ -263,7 +263,7 @@ body.is-editing .st-item .ed-tools{position:absolute;top:8px;right:8px;padding:4
     <label class="pr-drop" id="drop" for="pick" tabindex="0">
       <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M6.5 10.5 12 16l5.5-5.5"/><path d="M4 20h16"/></svg>
       <b>DROP YOUR PRESETS HERE</b>
-      <span>One .zip with your .xpl presets inside. Drag it onto this box, or click to choose.</span>
+      <span>One .zip with your presets inside (.xpl, or the plugin's own preset files). Drag it onto this box, or click to choose.</span>
       <em>NAME IT  AUTHOR-PACK NAME.zip   or   PRESET NAME-TYPE.zip</em>
       <input id="pick" type="file" accept=".zip,application/zip" multiple>
     </label>
@@ -279,7 +279,7 @@ body.is-editing .st-item .ed-tools{position:absolute;top:8px;right:8px;padding:4
       <div>
         <h3>How it works</h3>
         <ol>
-          <li>Find your <code>.xpl</code> preset files (on the Force / MPC they are in <code>MPC Documents / Plugin Presets</code>, in the plugin's folder).</li>
+          <li>Find your preset files. <b>Two kinds work:</b> the <code>.xpl</code> presets from the Force / MPC (in <code>MPC Documents / Plugin Presets</code>, in the plugin's folder), and the plugin's <b>own</b> preset files, where it has them: <b>VADER</b> MY PRESETS (<code>USER 001.vader</code>, in its <code>User Presets</code> folder) and <b>SurgeXXL</b> patches (<code>.fxp</code>). You can mix them in one zip.</li>
           <li>Put them in one <b>.zip</b> and name it by the rules next to this. No time? Drop it anyway: the page shows the name it will use and lets you fix it.</li>
           <li>Drop the zip in the box, check the details, tick the box, press <b>Send</b>.</li>
           <li>I try it on a Force. If it is good it goes on the list below with your name and a download button.</li>
@@ -292,7 +292,7 @@ body.is-editing .st-item .ed-tools{position:absolute;top:8px;right:8px;padding:4
           <li><b>One preset:</b> <code>PRESET NAME-TYPE.zip</code><br>e.g. <code>Warm Wall-Pad.zip</code></li>
           <li>TYPE is one of the usual preset-bank types below. If none fits, use <code>Experimental</code>.</li>
           <li>Use a single dash <code>-</code> between the parts and none inside them. Apostrophes and slashes are dropped.</li>
-          <li>Inside the zip: only <code>.xpl</code> presets, plus an optional <code>.txt</code> or <code>.md</code> readme. Up to 8 MB.</li>
+          <li>Inside the zip: only presets (<code>.xpl</code>, <code>.vader</code> or <code>.fxp</code>), plus an optional <code>.txt</code> or <code>.md</code> readme. Up to 8 MB. Each file must belong to one of the plugins on this site.</li>
         </ul>
         <p style="margin:14px 0 8px;color:var(--color-4);font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase">Types</p>
         <div class="pr-types" id="types"></div>
@@ -313,7 +313,7 @@ body.is-editing .st-item .ed-tools{position:absolute;top:8px;right:8px;padding:4
     <div class="pr-seg" role="group" aria-label="Group by"><button data-g="" aria-pressed="true">One list</button><button data-g="synth" aria-pressed="false">By plugin</button><button data-g="type" aria-pressed="false">By type</button><button data-g="author" aria-pressed="false">By author</button></div>
     <p class="pr-msg" id="count" style="margin-top:14px"></p>
     <div id="out"></div>
-    <div class="pr-how"><b>Installing:</b> unzip, copy the <code>.xpl</code> files into the plugin's <code>Presets</code> folder on your Force / MPC (next to the factory presets), then restart MPC so it finds the new files.</div>
+    <div class="pr-how"><b>Installing:</b> unzip, then copy <code>.xpl</code> files into the plugin's <code>Presets</code> folder on your Force / MPC (next to the factory presets) and restart MPC so it finds them. <b>VADER</b> <code>.vader</code> files go in its <code>User Presets</code> folder, named <code>USER 001.vader</code> to <code>USER 999.vader</code> (rename to a free slot number). <b>SurgeXXL</b> <code>.fxp</code> patches go in its patches folder, where it saves its own.</div>
   </div>
 </section>
 </main>

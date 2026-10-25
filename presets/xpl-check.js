@@ -56,3 +56,30 @@ export function checkXpl(text, synths) {
   if (tag(16, 4) !== synth.uid) return bad("The saved sound belongs to a different plugin than the preset header says.");
   return { ok: true, synth, preset, uid: synth.uid };
 }
+
+// The plugins' own preset files (only where the plugin writes its own, see "native" in synths.json):
+//   VADER MY PRESETS: text file "USER 001.vader", first line "VADER 1".   SurgeXXL: a Surge patch, a VST2 .fxp chunk file ("CcnK" ... "FPCh").
+export const MAX_NATIVE = 2 * 1024 * 1024;
+export function nativeSynth(filename, synths) {
+  const ext = (filename.split(".").pop() || "").toLowerCase();
+  return synths.find((s) => s.native && s.native.ext === ext);
+}
+// bytes: Uint8Array of the file. Returns {ok, synth, preset} or {ok:false, error}.
+export function checkNative(filename, bytes, synths) {
+  const synth = nativeSynth(filename, synths);
+  if (!synth) return { ok: false, error: "This file type is not one of the plugins' preset files." };
+  if (bytes.length === 0 || bytes.length > MAX_NATIVE) return { ok: false, error: "The file is empty or bigger than " + MAX_NATIVE / 1048576 + " MB." };
+  const head = (o, n) => String.fromCharCode(...bytes.slice(o, o + n));
+  const base = filename.split("/").pop().replace(/\.[^.]+$/, "");
+  if (synth.key === "vader") {
+    if (bytes.length > 256 * 1024) return { ok: false, error: "A VADER preset is never this big." };
+    const t = new TextDecoder().decode(bytes);
+    if (!/^VADER 1\r?\n/.test(t) || /<script|<iframe/i.test(t)) return { ok: false, error: "This is not a VADER preset file (it should start with VADER 1)." };
+    return { ok: true, synth, preset: base };
+  }
+  if (synth.key === "surgexxl") {
+    if (head(0, 4) !== "CcnK" || head(8, 4) !== "FPCh") return { ok: false, error: "This is not a Surge patch (.fxp)." };
+    return { ok: true, synth, preset: base };
+  }
+  return { ok: false, error: "No check for this file type yet." };
+}

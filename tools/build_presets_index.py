@@ -11,6 +11,7 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 PK = os.path.join(ROOT, "presets", "packs")
 cfg = json.load(open(os.path.join(ROOT, "presets", "synths.json")))
 TYPES = {t.lower(): t for t in cfg["types"]}
+NATIVE = {x["native"]["ext"]: x for x in cfg["synths"] if x.get("native")}
 BY_UID = {"".join("%02x" % ord(c) for c in s["uid"]): s for s in cfg["synths"]}
 
 
@@ -55,7 +56,18 @@ def main():
         try:
             with zipfile.ZipFile(os.path.join(PK, fn)) as z:
                 for n in z.namelist():
-                    if not n.lower().endswith(".xpl") or n.startswith("__MACOSX/"):
+                    ext = n.rsplit(".", 1)[-1].lower() if "." in n else ""
+                    if n.startswith("__MACOSX/") or n.endswith("/"):
+                        continue
+                    if ext in NATIVE:   # a plugin's own preset file: VADER "VADER 1" text, SurgeXXL .fxp chunk file
+                        raw = z.read(n)
+                        ok = raw.startswith(b"VADER 1") if ext == "vader" else raw[:4] == b"CcnK" and raw[8:12] == b"FPCh"
+                        if not ok:
+                            problems.append("%s: %s is not a valid %s file" % (fn, n, NATIVE[ext]["native"]["what"])); continue
+                        synths[NATIVE[ext]["key"]] = NATIVE[ext]["name"]
+                        presets.append(os.path.splitext(os.path.basename(n))[0])
+                        continue
+                    if ext != "xpl":
                         continue
                     t = z.read(n).decode("utf-8", "replace")
                     m = re.search(r'<PLUGIN\b[^>]*\buid="([0-9a-fA-F]{8})"', t)

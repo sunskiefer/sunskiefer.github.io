@@ -15,8 +15,11 @@ copy into `presets/packs/` is shown on the site.
 * One dash `-` between the parts, none inside them. A name whose last part is a type is read as a single preset;
   anything else is read as `AUTHOR-PACK NAME`.
 * Apostrophes, slashes and other odd characters are dropped from names (they would break scripts and paths).
-* Inside the zip: only `.xpl` presets (from the Force / MPC), plus an optional `.txt` or `.md` readme. Up to 8 MB, 300 files,
-  400 KB per preset. Every `.xpl` must belong to one of the plugins in `synths.json`.
+* Two kinds of preset file are accepted, and may be mixed in one zip: the Force / MPC `.xpl` presets (every plugin), and a plugin's
+  **own** preset files where it has them: VADER MY PRESETS (`USER 001.vader`, text starting `VADER 1`) and SurgeXXL patches (`.fxp`).
+  PhyXXL and DroneXXL have no files of their own, so for them it is `.xpl`. Plus an optional `.txt` or `.md` readme. Up to 8 MB,
+  300 files, 400 KB per `.xpl`, 2 MB per `.fxp`. Every file must belong to one of the plugins in `synths.json`.
+  Add a plugin's own format by giving it a `native` entry in `synths.json` and a check in `xpl-check.js` (`checkNative`).
 * The page reads the zip and shows what is inside; if the name does not follow the rule it fills in the form for the sender and
   shows the name it will file the zip under.
 

@@ -1,12 +1,14 @@
 // Looks inside a preset zip without unpacking it to disk: lists the entries, then reads every .xpl and checks it.
 // Used by the page (so people see problems at once) and by the Worker (so the inbox only gets proper presets).
-import { checkXpl, MAX_BYTES } from "./xpl-check.js";
+import { checkXpl, checkNative, MAX_BYTES, MAX_NATIVE } from "./xpl-check.js";
 export const LIMITS = { zip: 8 * 1024 * 1024, entries: 300, total: 40 * 1024 * 1024 };
-const ALLOWED = ["xpl", "txt", "md"];
+const ALLOWED_BASE = ["xpl", "txt", "md"];
 const u16 = (d, o) => d[o] | (d[o + 1] << 8);
 const u32 = (d, o) => (d[o] | (d[o + 1] << 8) | (d[o + 2] << 16) | (d[o + 3] << 24)) >>> 0;
 
-export function listZip(b) {
+export function listZip(b, synths = []) {
+  const native = synths.filter((s) => s.native).map((s) => s.native.ext);
+  const ALLOWED = [...ALLOWED_BASE, ...native];
   const err = (error) => ({ error });
   if (b.length > LIMITS.zip) return err("The zip is bigger than " + LIMITS.zip / 1048576 + " MB.");
   if (b.length < 22) return err("That is not a zip file.");
@@ -28,11 +30,11 @@ export function listZip(b) {
     if (flags & 1) return err("The zip is password protected.");
     if (/(^|\/)\.\.(\/|$)/.test(name) || name.startsWith("/") || /[\\:]/.test(name)) return err("The zip has an unsafe file path: " + name.slice(0, 60));
     const ext = (name.split(".").pop() || "").toLowerCase();
-    if (!ALLOWED.includes(ext)) return err("Only .xpl presets (and an optional .txt or .md readme) may be inside. Found: " + name.slice(0, 60));
+    if (!ALLOWED.includes(ext)) return err("Only presets (.xpl, or a plugin's own preset file) and an optional .txt or .md readme may be inside. Found: " + name.slice(0, 60));
     if (method !== 0 && method !== 8) return err("The zip uses a compression this page cannot read.");
     total += usize;
     if (total > LIMITS.total) return err("The zip unpacks to too much data.");
-    if (ext === "xpl" && usize > MAX_BYTES) return err(name.slice(0, 60) + " is bigger than " + MAX_BYTES / 1024 + " KB.");
+    if (ext === "xpl" && usize > MAX_BYTES || native.includes(ext) && usize > MAX_NATIVE) return err(name.slice(0, 60) + " is bigger than " + MAX_BYTES / 1024 + " KB.");
     out.push({ name, ext, method, csize, usize, lho });
   }
   return { entries: out, skipped };
@@ -60,20 +62,20 @@ async function readEntry(b, e) {
 
 // Returns {ok, error?, presets:[{file, preset, synth, synthName}], synths:[{key,name}], readme:boolean}
 export async function analyzeZip(bytes, synths) {
-  const l = listZip(bytes);
+  const l = listZip(bytes, synths);
   if (l.error) return { ok: false, error: l.error };
-  const xpls = l.entries.filter((e) => e.ext === "xpl");
-  if (!xpls.length) return { ok: false, error: "There is no .xpl preset inside the zip." };
+  const xpls = l.entries.filter((e) => e.ext !== "txt" && e.ext !== "md");
+  if (!xpls.length) return { ok: false, error: "There is no preset inside the zip." };
   const presets = [], problems = [];
   for (const e of xpls) {
     try {
-      const txt = new TextDecoder("utf-8", { fatal: true }).decode(await readEntry(bytes, e));
-      const c = checkXpl(txt, synths);
+      const raw = await readEntry(bytes, e);
+      const c = e.ext === "xpl" ? checkXpl(new TextDecoder("utf-8", { fatal: true }).decode(raw), synths) : checkNative(e.name, raw, synths);
       if (c.ok) presets.push({ file: e.name, preset: c.preset, synth: c.synth.key, synthName: c.synth.name });
       else problems.push(e.name.split("/").pop() + ": " + c.error);
     } catch { problems.push(e.name.split("/").pop() + ": cannot be read."); }
   }
   if (problems.length) return { ok: false, error: problems.slice(0, 3).join("  ") + (problems.length > 3 ? "  (+" + (problems.length - 3) + " more)" : "") };
   const seen = new Map(); presets.forEach((p) => seen.set(p.synth, p.synthName));
-  return { ok: true, presets, synths: [...seen].map(([key, name]) => ({ key, name })), readme: l.entries.some((e) => e.ext !== "xpl") };
+  return { ok: true, presets, synths: [...seen].map(([key, name]) => ({ key, name })), readme: l.entries.some((e) => e.ext === "txt" || e.ext === "md") };
 }

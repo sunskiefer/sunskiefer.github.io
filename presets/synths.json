@@ -121,13 +121,25 @@
    "key": "surgexxl",
    "name": "SurgeXXL",
    "uid": "AnSx",
-   "effect": false
+   "effect": false,
+   "native": {
+    "ext": "fxp",
+    "what": "Surge patch",
+    "folder": "Patches",
+    "how": "a .fxp patch"
+   }
   },
   {
    "key": "vader",
    "name": "VADER",
    "uid": "AnVd",
-   "effect": false
+   "effect": false,
+   "native": {
+    "ext": "vader",
+    "what": "MY PRESETS file",
+    "folder": "User Presets",
+    "how": "USER 001.vader to USER 999.vader"
+   }
   }
  ]
 }
